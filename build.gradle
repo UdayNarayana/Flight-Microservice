@@ -1,0 +1,30 @@
+plugins {
+	id 'org.springframework.boot' version '2.6.6'
+	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+	id 'java'
+	id 'war'
+}
+
+group = 'com.booking'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '11'
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation group: 'org.springframework.boot', name: 'spring-boot-starter-validation', version: '2.6.4'
+	implementation group: 'org.springframework.cloud', name: 'spring-cloud-starter-netflix-eureka-client', version: '3.1.1'
+	// https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-config-client
+	implementation group: 'org.springframework.cloud', name: 'spring-cloud-config-client', version: '3.1.1'
+	runtimeOnly 'org.postgresql:postgresql'
+	compileOnly group: 'org.projectlombok', name: 'lombok', version: '1.18.18'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+}
+
+tasks.named('test') {
+	useJUnitPlatform()
+}
